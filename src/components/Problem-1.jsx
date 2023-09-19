@@ -10,7 +10,17 @@ const Problem1 = () => {
         const completed = data.filter(x => x.status === 'completed')
         if (val === 'all') {
             data.sort((a, b) => {
-                return a.status.localeCompare(b.status);
+                const statusOrder = ['active', 'completed'];
+                const statusA = a.status.toLowerCase();
+                const statusB = b.status.toLowerCase();
+
+                if (statusOrder.includes(statusA) && !statusOrder.includes(statusB)) {
+                    return -1;
+                }
+                if (!statusOrder.includes(statusA) && statusOrder.includes(statusB)) {
+                    return 1;
+                }
+                return statusA.localeCompare(statusB);
             });
 
             setShow(data);
