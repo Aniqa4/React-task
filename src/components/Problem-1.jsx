@@ -9,7 +9,7 @@ const Problem1 = () => {
         const active = data.filter(x => x.status === 'active')
         const completed = data.filter(x => x.status === 'completed')
         if (val === 'all') {
-            data.sort((a, b) => {
+            data?.sort((a, b) => {
                 const statusOrder = ['active', 'completed'];
                 const statusA = a.status.toLowerCase();
                 const statusB = b.status.toLowerCase();
@@ -92,7 +92,7 @@ const Problem1 = () => {
                     <table className="table table-striped ">
                         <thead>
                             {
-                                show.map((x, index) =>
+                                show?.map((x, index) =>
                                     <tr>
                                         <th scope="col">{x.name}</th>
                                         <th scope="col">{x.status}</th>
